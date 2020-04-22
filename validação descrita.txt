@@ -1,0 +1,10 @@
+Ex. 56*2+9*(98/6)-1
+
+O programa deve verificar se a expressao termina em ) ou numerico , se sim , ok , se nao :
+- se 
+
+	botao clicado igual a outro sinal , substitui o ultimo char pelo sinal do botao 	clicado
+
+- se 
+
+	botao clicado igual a = , apaga o ultimo char , antes de passar a equeação para o 	metodo compute

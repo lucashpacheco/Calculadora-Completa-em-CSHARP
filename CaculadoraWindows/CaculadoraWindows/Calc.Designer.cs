@@ -487,7 +487,7 @@
             this.txt_display.TabIndex = 0;
             this.txt_display.Text = "0";
             // 
-            // Form1
+            // Calc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -498,8 +498,9 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Calc";
+            this.Text = "Calculadora";
+            this.Load += new System.EventHandler(this.Calc_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

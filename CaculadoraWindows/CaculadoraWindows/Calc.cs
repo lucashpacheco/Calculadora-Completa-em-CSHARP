@@ -93,6 +93,7 @@ namespace CaculadoraWindows
 
         private void btn_virgula_Click(object sender, EventArgs e)
         {
+
             display.Append(".");
             txt_display.Text = Convert.ToString(display);
         }
@@ -146,6 +147,12 @@ namespace CaculadoraWindows
         public string Somar()
         {
 
+            //string expressaobruta = Convert.ToString(displayequacao);
+
+            //string expressaovalidada = Convert.ToString(ValidaSinalFinal(expressaobruta));
+
+            //equacao.Text = Convert.ToString(expressaovalidada);
+
 
             displayequacao.Append(display);
 
@@ -166,6 +173,11 @@ namespace CaculadoraWindows
         public string Subtrair()
         {
 
+            //string expressaobruta = Convert.ToString(displayequacao);
+
+            //string expressaovalidada = Convert.ToString(ValidaSinalFinal(expressaobruta));
+
+            //equacao.Text = Convert.ToString(expressaovalidada);
 
             displayequacao.Append(display);
 
@@ -185,6 +197,11 @@ namespace CaculadoraWindows
         public string Multiplicar()
         {
 
+            //string expressaobruta = Convert.ToString(displayequacao);
+
+            //string expressaovalidada = Convert.ToString(ValidaSinalFinal(expressaobruta));
+
+            //equacao.Text = Convert.ToString(expressaovalidada);
 
             displayequacao.Append(display);
 
@@ -204,7 +221,9 @@ namespace CaculadoraWindows
 
         public string Dividir()
         {
+            string expressaobruta = Convert.ToString(displayequacao);
 
+            string expressaovalidada = Convert.ToString(ValidaSinalFinal(expressaobruta));
 
             displayequacao.Append(display);
 
@@ -214,7 +233,7 @@ namespace CaculadoraWindows
 
             txt_display.Text = Convert.ToString(display);
 
-            equacao.Text = Convert.ToString(displayequacao);
+            equacao.Text = Convert.ToString(expressaovalidada);
 
             return Convert.ToString(displayequacao);
 
@@ -244,7 +263,7 @@ namespace CaculadoraWindows
         public string Quadrado()
         {
 
-            double raiz = Convert.ToDouble(Convert.ToString(display))* Convert.ToDouble(Convert.ToString(display));
+            double raiz = Convert.ToDouble(Convert.ToString(display)) * Convert.ToDouble(Convert.ToString(display));
 
             string raizq = Convert.ToString(raiz, CultureInfo.InvariantCulture);
 
@@ -287,23 +306,22 @@ namespace CaculadoraWindows
         }
         public string Igual()
         {
+            string log = Convert.ToString(display);
 
+            string expressaobruta = Convert.ToString(displayequacao);
 
+            string expressaovalidada = Convert.ToString(ValidaSinalFinal(expressaobruta));
 
+            double resultado1 = double.Parse(Resolve(expressaovalidada));
 
             displayequacao.Append(display);
 
-            string log = Convert.ToString(display);
 
             display.Clear();
 
-            txt_display.Text = Convert.ToString(display);
+            txt_display.Text = Convert.ToString(expressaovalidada);
 
-            equacao.Text = Convert.ToString(displayequacao);
-
-            string expressao1 = Convert.ToString(displayequacao);
-
-            double resultado1 = double.Parse(Resolve(expressao1));
+            equacao.Text = Convert.ToString(expressaovalidada);
 
             txt_display.Text = Convert.ToString(resultado1, CultureInfo.InvariantCulture);
 
@@ -342,6 +360,96 @@ namespace CaculadoraWindows
             return Convert.ToString(resultado);
         }
 
-        
+        public string ValidaSinalFinal(string expressaobruta)
+        {
+            string expressaovalidada = expressaobruta;
+
+            object enumero = Convert.ToString(expressaobruta.Substring(expressaobruta.Length - 1, 1)).GetType();
+
+            object stringtype = enumero.ToString();
+
+            MessageBox.Show(Convert.ToString(stringtype));
+            //object stringnumericamodelo = 1.IsNumber();
+
+
+            //while (Convert.ToBoolean(stringtype.Equals)
+            //{
+            //    char ultimochar = Convert.ToChar(expressaobruta.Substring(expressaobruta.Length - 1, 1));
+
+            //    while (ultimochar == '+')
+            //    {
+            //        expressaovalidada = expressaobruta.Substring(0, expressaobruta.Length - 1);
+            //    }
+            //    while (ultimochar == '-')
+            //    {
+            //        expressaovalidada = expressaobruta.Substring(0, expressaobruta.Length - 1);
+            //    }
+            //    while (ultimochar == '*')
+            //    {
+            //        expressaovalidada = expressaobruta.Substring(0, expressaobruta.Length - 1);
+            //    }
+            //    while (ultimochar == '/')
+            //    {
+            //        expressaovalidada = expressaobruta.Substring(0, expressaobruta.Length - 1);
+            //    }
+
+            //}
+
+
+
+            return expressaovalidada;
+
+            //for (ultimochar = '+' ) ;
+
+            //if (ultimochar = '+'|| ultimochar = '-' || ultimochar = '/' || ultimochar = '*')
+            //{
+
+            //}
+        }
+
+        public string ValidaSinalMeio(string expressaobruta)
+        {
+            string expressaovalidada = expressaobruta;
+
+            char ultimochar = Convert.ToChar(expressaobruta.Substring(expressaobruta.Length - 1, 1));
+
+            if (ultimochar == '+')
+            {
+                expressaovalidada = expressaobruta.Substring(0, expressaobruta.Length - 1);
+            }
+            else if (ultimochar == '-')
+            {
+                expressaovalidada = expressaobruta.Substring(0, expressaobruta.Length - 1);
+            }
+            else if (ultimochar == '*')
+            {
+                expressaovalidada = expressaobruta.Substring(0, expressaobruta.Length - 1);
+            }
+            else if (ultimochar == '/')
+            {
+                expressaovalidada = expressaobruta.Substring(0, expressaobruta.Length - 1);
+            }
+            else
+            {
+                expressaovalidada = expressaobruta;
+            }
+
+            return expressaovalidada;
+
+            //for (ultimochar = '+' ) ;
+
+            //if (ultimochar = '+'|| ultimochar = '-' || ultimochar = '/' || ultimochar = '*')
+            //{
+
+            //}
+        }
+
+
+
+
+        private void Calc_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
